@@ -1,7 +1,7 @@
 {
   "name": "BizOrganizer Pro",
   "short_name": "BizOrganizer",
-  "description": "Interaktywny organizer biznesowy z dashboardem, kalendarzem, notatnikiem i sterowaniem głosowym.",
+  "description": "Interaktywny organizer biznesowy z dashboardem, kalendarzem spotkań, notatnikiem, zapisem myśli i pomysłów oraz sterowaniem głosowym. Zarządzaj swoim dniem pracy efektywnie.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
@@ -9,9 +9,56 @@
   "background_color": "#e8ecf0",
   "theme_color": "#6c47ff",
   "lang": "pl",
+  "dir": "ltr",
   "categories": ["business", "productivity"],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "Kalendarz",
+      "short_name": "Kalendarz",
+      "description": "Otwórz kalendarz spotkań",
+      "url": "/?section=calendar",
+      "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Nowe spotkanie",
+      "short_name": "Spotkanie",
+      "description": "Dodaj nowe spotkanie",
+      "url": "/?section=calendar&action=new",
+      "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Notatnik",
+      "short_name": "Notatki",
+      "description": "Otwórz notatnik",
+      "url": "/?section=notes",
+      "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
+    }
+  ],
   "icons": [
-    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
-    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
   ]
 }

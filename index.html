@@ -7,7 +7,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#6c47ff">
-<title>BizOrganizer Pro</title>
+<title>BizOrganizer Pro v4</title>
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-192.png">
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
@@ -209,6 +209,63 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:14
   .tf{padding:0 14px 10px;}
   .qb{padding:10px 14px;}
 }
+
+/* DASHBOARD */
+#dash-body{flex:1;overflow-y:auto;padding-bottom:20px;}
+.greeting{background:linear-gradient(135deg,var(--p1),var(--b2));border-radius:20px;padding:20px 24px;margin-bottom:16px;color:#fff;position:relative;overflow:hidden;box-shadow:0 8px 24px rgba(108,71,255,0.35);}
+.greeting::after{content:'';position:absolute;right:-20px;top:-20px;width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,0.08);}
+.greeting-time{font-size:11px;font-weight:700;opacity:0.8;margin-bottom:4px;text-transform:uppercase;letter-spacing:0.5px;}
+.greeting-text{font-size:20px;font-weight:800;margin-bottom:4px;}
+.greeting-sub{font-size:12px;opacity:0.8;font-weight:600;}
+.greeting-icon{position:absolute;right:24px;top:50%;transform:translateY(-50%);font-size:42px;opacity:0.9;}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px;}
+.stat-c{background:var(--bg);border-radius:16px;padding:14px 16px;box-shadow:var(--sh1);transition:all 0.2s;cursor:pointer;}
+.stat-c:hover{box-shadow:-6px -6px 12px rgba(255,255,255,0.95),6px 6px 12px rgba(163,177,198,0.75);transform:translateY(-2px);}
+.stat-icon{font-size:22px;margin-bottom:8px;}
+.stat-num{font-size:24px;font-weight:800;line-height:1;margin-bottom:3px;}
+.stat-lbl{font-size:11px;color:var(--text2);font-weight:600;}
+.stat-sub{font-size:10px;color:var(--text3);margin-top:2px;font-weight:500;}
+.stat-c.meetings .stat-num{color:var(--p1);}
+.stat-c.notes2 .stat-num{color:var(--t1);}
+.stat-c.thoughts2 .stat-num{color:var(--y1);}
+.stat-c.tasks2 .stat-num{color:var(--b2);}
+.dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.dash-card{background:var(--bg);border-radius:18px;padding:16px 18px;box-shadow:var(--sh1);}
+.dash-card-title{font-size:12px;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:0.6px;margin-bottom:12px;display:flex;align-items:center;gap:7px;}
+.dcbadge{background:linear-gradient(135deg,var(--p1),var(--b2));color:#fff;font-size:9px;padding:2px 7px;border-radius:8px;}
+.today-ev{display:flex;gap:10px;align-items:center;padding:9px 0;border-bottom:1px solid rgba(163,177,198,0.2);cursor:pointer;transition:all 0.15s;}
+.today-ev:last-child{border-bottom:none;}
+.today-ev:hover{transform:translateX(3px);}
+.tev-stripe{width:3px;height:36px;border-radius:3px;flex-shrink:0;}
+.tev-stripe.meeting{background:linear-gradient(180deg,var(--p1),var(--b2));}
+.tev-stripe.call{background:linear-gradient(180deg,var(--t1),#00a8e0);}
+.tev-stripe.deadline{background:linear-gradient(180deg,var(--r1),var(--o1));}
+.tev-stripe.personal{background:linear-gradient(180deg,var(--y1),var(--o1));}
+.tev-time{font-family:var(--mono);font-size:10px;color:var(--text3);min-width:34px;font-weight:500;}
+.tev-title{font-size:12px;font-weight:700;color:var(--text);}
+.tev-sub{font-size:10px;color:var(--text3);}
+.tev-now{background:rgba(108,71,255,0.12);border-radius:8px;padding:2px 6px;font-size:9px;font-weight:700;color:var(--p1);margin-left:auto;white-space:nowrap;}
+.prog-row{margin-bottom:10px;}
+.prog-label{display:flex;justify-content:space-between;font-size:11px;font-weight:700;margin-bottom:5px;}
+.prog-bar{height:8px;background:var(--bg);border-radius:4px;box-shadow:var(--shin);overflow:hidden;}
+.prog-fill{height:100%;border-radius:4px;transition:width 1s ease;}
+.week-chart{display:flex;align-items:flex-end;gap:8px;height:80px;margin-top:4px;}
+.week-bar-wrap{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;}
+.week-bar{width:100%;border-radius:6px 6px 0 0;transition:height 0.8s ease;min-height:4px;box-shadow:var(--sh2);}
+.week-bar.tbr{box-shadow:0 4px 12px rgba(108,71,255,0.35);}
+.recent-th{padding:8px 0;border-bottom:1px solid rgba(163,177,198,0.2);cursor:pointer;transition:all 0.15s;}
+.recent-th:last-child{border-bottom:none;}
+.recent-th:hover{transform:translateX(3px);}
+.rth-tag{display:inline-block;font-size:9px;padding:1px 7px;border-radius:6px;font-weight:700;margin-bottom:4px;}
+.rth-text{font-size:12px;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.qa-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.qa-btn{background:var(--bg);border:none;border-radius:12px;padding:12px 14px;cursor:pointer;font-family:var(--font);font-size:11px;font-weight:700;color:var(--text2);box-shadow:var(--sh2);transition:all 0.2s;text-align:left;display:flex;align-items:center;gap:8px;}
+.qa-btn:hover{box-shadow:var(--sh1);color:var(--text);}
+.qa-btn:active{box-shadow:var(--shin);}
+.qa-icon{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;}
+.ni.active.dash{color:var(--y1);}
+.ni.active.dash .ni-ic{background:linear-gradient(135deg,var(--y1),var(--o1));box-shadow:0 4px 10px rgba(245,158,11,0.4);}
+@media(max-width:600px){.stats-grid{grid-template-columns:repeat(2,1fr);}.dash-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -225,9 +282,10 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:14
 
   <div id="sidebar">
     <div class="nav-lbl">Menu</div>
-    <div class="nav-item active cal" onclick="sp('calendar')"><div class="ni">📅</div>Kalendarz<div class="nb" id="be">0</div></div>
-    <div class="nav-item notes" onclick="sp('notes')"><div class="ni">📝</div>Notatnik<div class="nb" id="bn">0</div></div>
-    <div class="nav-item thoughts" onclick="sp('thoughts')"><div class="ni">💡</div>Myśli<div class="nb" id="bt">0</div></div>
+    <div class="ni active dash" onclick="sp('dashboard')"><div class="ni-ic">🏠</div>Pulpit</div>
+    <div class="ni active cal" onclick="sp('calendar')"><div class="ni">📅</div>Kalendarz<div class="nb" id="be">0</div></div>
+    <div class="ni notes" onclick="sp('notes')"><div class="ni">📝</div>Notatnik<div class="nb" id="bn">0</div></div>
+    <div class="ni thoughts" onclick="sp('thoughts')"><div class="ni">💡</div>Myśli<div class="nb" id="bt">0</div></div>
     <div class="nav-lbl">Nadchodzące</div>
     <div id="sup"></div>
   </div>
@@ -343,12 +401,12 @@ const WH={pierwszej:1,drugiej:2,trzeciej:3,czwartej:4,piątej:5,piatej:5,szóste
 let tF='all',nS='';
 let S={
   m:new Date().getMonth(),y:new Date().getFullYear(),sel:new Date(),
-  ev:JSON.parse(localStorage.getItem('biz-ev')||'[]'),
-  no:JSON.parse(localStorage.getItem('biz-no')||'[]'),
-  th:JSON.parse(localStorage.getItem('biz-th')||'[]'),
+  ev:JSON.parse(localStorage.getItem('biz-ev6')||'[]'),
+  no:JSON.parse(localStorage.getItem('biz-no6')||'[]'),
+  th:JSON.parse(localStorage.getItem('biz-th6')||'[]'),
   nid:null,ls:false,rec:null
 };
-function sv(){localStorage.setItem('biz-ev',JSON.stringify(S.ev));localStorage.setItem('biz-no',JSON.stringify(S.no));localStorage.setItem('biz-th',JSON.stringify(S.th));}
+function sv(){localStorage.setItem('biz-ev6',JSON.stringify(S.ev));localStorage.setItem('biz-no6',JSON.stringify(S.no));localStorage.setItem('biz-th6',JSON.stringify(S.th));}
 function ds(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
 function sp(n){
   document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
@@ -532,6 +590,83 @@ function pc(txt){
 }
 
 // INIT
+
+function sp(n){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.ni,.nav-item').forEach(x=>x.classList.remove('active'));
+  document.getElementById('panel-'+n).classList.add('active');
+  const navMap={dashboard:0,calendar:1,notes:2,thoughts:3};
+  const allNi=document.querySelectorAll('.ni,.nav-item');
+  if(allNi[navMap[n]])allNi[navMap[n]].classList.add('active');
+  if(n==='dashboard')rdash();
+  if(n==='notes')renderNotesList();
+  if(n==='thoughts')renderThoughts();
+  if(n==='calendar')renderCalendar();
+}
+function rdash(){
+  const now=new Date();const h=now.getHours();
+  let greet='Dzień dobry',icon='☀️';
+  if(h<6){greet='Dobra noc';icon='🌙';}else if(h>=18){greet='Dobry wieczór';icon='🌆';}
+  document.getElementById('gtx').textContent=greet+'!';
+  document.getElementById('gico').textContent=icon;
+  document.getElementById('gt').textContent=now.toLocaleTimeString('pl-PL',{hour:'2-digit',minute:'2-digit'})+' · '+now.toLocaleDateString('pl-PL',{weekday:'long',day:'numeric',month:'long'});
+  const today=dateStr(now);
+  const todayEv=state.events.filter(e=>e.date===today);
+  const upEv=state.events.filter(e=>e.date>today);
+  const tasks=state.thoughts.filter(t=>t.tag==='task');
+  const ideas=state.thoughts.filter(t=>t.tag==='idea');
+  if(!todayEv.length)document.getElementById('gsub').textContent='Brak spotkań dziś — dobry dzień na skupioną pracę!';
+  else document.getElementById('gsub').textContent='Masz '+todayEv.length+(todayEv.length===1?' spotkanie':' spotkań')+' dziś.';
+  document.getElementById('st-ev').textContent=todayEv.length;
+  document.getElementById('st-ev-sub').textContent=upEv.length>0?'+'+upEv.length+' nadchodzących':'Brak nadchodzących';
+  document.getElementById('st-no').textContent=state.notes.length;
+  document.getElementById('st-no-sub').textContent=state.notes.length>0?'Ostatnia: '+new Date(state.notes[0]?.updated).toLocaleDateString('pl-PL'):'Brak notatek';
+  document.getElementById('st-th').textContent=state.thoughts.length;
+  document.getElementById('st-th-sub').textContent=ideas.length+' pomysłów';
+  document.getElementById('st-ta').textContent=tasks.length;
+  document.getElementById('st-ta-sub').textContent='Do wykonania';
+  document.getElementById('today-count').textContent=todayEv.length;
+  const tevEl=document.getElementById('today-evs');
+  if(!todayEv.length){tevEl.innerHTML='<div style="padding:16px 0;text-align:center;color:var(--text3);font-weight:600;font-size:12px;">🎉 Brak spotkań na dziś!</div>';}
+  else{
+    const nowMin=now.getHours()*60+now.getMinutes();
+    const TL={meeting:'Spotkanie',call:'Rozmowa',deadline:'Deadline',personal:'Osobiste'};
+    tevEl.innerHTML=todayEv.sort((a,b)=>a.time.localeCompare(b.time)).map(e=>{
+      const[eh,em]=e.time.split(':').map(Number);const evMin=eh*60+em;
+      const isNow=evMin<=nowMin&&nowMin<evMin+60;const isPast=evMin+60<nowMin;
+      return'<div class="today-ev" onclick="showPanel(\'calendar\')" style="'+(isPast?'opacity:0.5':'')+'"><div class="tev-stripe '+e.type+'"></div><div class="tev-time">'+e.time+'</div><div style="flex:1;"><div class="tev-title">'+e.title+'</div><div class="tev-sub">'+(e.participants||TL[e.type])+'</div></div>'+(isNow?'<div class="tev-now">🔴 Teraz</div>':'')+'</div>';
+    }).join('');
+  }
+  const weekEl=document.getElementById('week-chart');
+  const todayDow=now.getDay()||7;
+  const weekStart=new Date(now);weekStart.setDate(now.getDate()-todayDow+1);weekStart.setHours(0,0,0,0);
+  const bars=[];
+  for(let i=0;i<7;i++){const d=new Date(weekStart);d.setDate(weekStart.getDate()+i);bars.push({cnt:state.events.filter(e=>e.date===dateStr(d)).length,isToday:dateStr(d)===today});}
+  const mx=Math.max(...bars.map(b=>b.cnt),1);
+  weekEl.innerHTML=bars.map(b=>{const h2=Math.max(8,Math.round((b.cnt/mx)*68));const col=b.isToday?'linear-gradient(180deg,var(--p1),var(--b2))':'linear-gradient(180deg,#c4b5fd,#93c5fd)';return'<div class="week-bar-wrap"><div style="font-size:10px;font-weight:700;color:'+(b.isToday?'var(--p1)':'var(--text3)')+';">'+(b.cnt||'')+'</div><div class="week-bar'+(b.isToday?' tbr':'')+'" style="height:'+h2+'px;background:'+col+';"></div></div>';}).join('');
+  const rthEl=document.getElementById('recent-thoughts');
+  const recent=state.thoughts.slice(0,4);
+  if(!recent.length){rthEl.innerHTML='<div style="padding:12px 0;text-align:center;color:var(--text3);font-weight:600;font-size:12px;">Brak wpisów</div>';}
+  else{
+    const ts={idea:'background:#fef3c7;color:#92400e;',task:'background:#d1fae5;color:#065f46;',thought:'background:#bfd7fe;color:#1e40af;',meeting:'background:#ede8ff;color:#6c47ff;'};
+    const tl={idea:'💡 Pomysł',task:'✅ Zadanie',thought:'💭 Myśl',meeting:'📋 Notatka'};
+    rthEl.innerHTML=recent.map(t=>'<div class="recent-th" onclick="showPanel(\'thoughts\')"><span class="rth-tag" style="'+ts[t.tag]+'">'+tl[t.tag]+'</span><div class="rth-text">'+t.text+'</div></div>').join('');
+  }
+  const nowMin2=now.getHours()*60+now.getMinutes();
+  const pastEv=todayEv.filter(e=>{const[h2,m2]=e.time.split(':').map(Number);return h2*60+m2+60<nowMin2;});
+  const evPct=todayEv.length?Math.round(pastEv.length/todayEv.length*100):0;
+  document.getElementById('prog-ev').style.width=evPct+'%';
+  document.getElementById('prog-ev-val').textContent=pastEv.length+'/'+todayEv.length;
+  document.getElementById('prog-ta').style.width=Math.min(100,tasks.length*10)+'%';
+  document.getElementById('prog-ta-val').textContent=tasks.length+' zapisanych';
+}
+function readToday(){
+  const today=dateStr(new Date());const ev=state.events.filter(e=>e.date===today).sort((a,b)=>a.time.localeCompare(b.time));
+  if(!ev.length){showFeedback('🎉 Brak spotkań na dziś!');if('speechSynthesis'in window){const u=new SpeechSynthesisUtterance('Nie masz żadnych spotkań na dziś.');u.lang='pl-PL';speechSynthesis.speak(u);}return;}
+  let txt='Twoje spotkania na dziś: ';ev.forEach(e=>txt+='O godzinie '+e.time.replace(':','i')+' — '+e.title+'. ');
+  showFeedback('🔊 Odczytuję '+ev.length+' spotkań...');
+  if('speechSynthesis'in window){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(txt);u.lang='pl-PL';u.rate=0.95;speechSynthesis.speak(u);}
+}
 function init(){
   ud();setInterval(ud,60000);
   if(!S.ev.length){
